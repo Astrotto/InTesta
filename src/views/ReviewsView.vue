@@ -95,7 +95,7 @@ const tags: Tag[] = [
           <p class="mt-2 text-muted">La tua opinione aiuta altre clienti a scegliere In Testa.</p>
         </div>
         <BaseButton
-          :href="salon.mapsUrl"
+          :href="salon.reviewUrl"
           variant="accent"
           icon="star"
           class="shrink-0"

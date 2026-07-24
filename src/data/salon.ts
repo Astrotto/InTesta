@@ -38,6 +38,7 @@ export interface SalonContact {
   plusCode: string
   mapsUrl: string
   mapsEmbedUrl: string
+  reviewUrl: string
   rating: number
   reviewsCount: number
 }
@@ -58,6 +59,7 @@ export const salon: SalonContact = {
   mapsUrl: 'https://maps.app.goo.gl/wkabGTznBWz85pFj8',
   mapsEmbedUrl:
     'https://www.google.com/maps?q=Via+Madonna+della+Neve,+67035+Pratola+Peligna+AQ&output=embed',
+  reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJGQzGdog_MBMR5emBuhWrR3A',
   rating: 5.0,
   reviewsCount: 22,
 }
