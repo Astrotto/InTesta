@@ -1,8 +1,5 @@
 @import 'tailwindcss';
 
-/* Abilita il dark mode tramite classe .dark sull'elemento root */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ==========================================================================
    Palette — mood "urban jungle atelier", allineata agli interni reali del
    salone: legno noce quasi nero delle mensole, poltrone in pelle nera,
@@ -30,23 +27,6 @@
 
   /* Ombre morbide */
   --shadow-soft: 0 10px 40px -12px rgba(38, 24, 12, 0.22);
-}
-
-/* Override tema scuro */
-.dark {
-  --color-background: #100c09;
-  --color-surface: #191310;
-  --color-surface-alt: #221913;
-  --color-foreground: #f3ead9;
-  --color-muted: #a89684;
-  --color-primary: #c99567;
-  --color-primary-soft: #a9754e;
-  --color-accent: #e2865a;
-  --color-accent-soft: #9c5030;
-  --color-blush: #74b389;
-  --color-border: #2b2015;
-
-  --shadow-soft: 0 10px 40px -12px rgba(0, 0, 0, 0.7);
 }
 
 /* ==========================================================================

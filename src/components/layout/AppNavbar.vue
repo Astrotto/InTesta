@@ -3,7 +3,6 @@ import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useNavigation } from '@/composables/useNavigation'
 import { salon } from '@/data/salon'
-import ThemeToggle from '@/components/ui/ThemeToggle.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 
 const { links } = useNavigation()
@@ -67,7 +66,6 @@ watch(
 
       <!-- Azioni -->
       <div class="flex items-center gap-2">
-        <ThemeToggle />
         <BaseButton
           :href="salon.whatsapp"
           variant="accent"

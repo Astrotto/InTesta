@@ -3,7 +3,7 @@
 Sito web vetrina per **In Testa Hair Salon** — Blonde Color Specialist · Spa & Wellness a Pratola Peligna (AQ).
 
 Stack: **Bun + Vue 3 + TypeScript + Vue Router + Tailwind CSS v4 + Font Awesome**.
-Mobile-first, responsive, con tema chiaro/scuro persistente.
+Mobile-first, responsive.
 
 ## Comandi
 
@@ -25,7 +25,7 @@ bun run type-check # solo controllo dei tipi con vue-tsc
 
 ## Personalizzazione
 
-- **Colori**: modifica le variabili in `@theme` e in `.dark` dentro `src/assets/main.css`.
+- **Colori**: modifica le variabili in `@theme` dentro `src/assets/main.css`.
 - **Contenuti** (telefono, WhatsApp, Instagram, orari, servizi, recensioni): `src/data/salon.ts`.
 - **Voci di menu**: `src/composables/useNavigation.ts`.
 
@@ -37,6 +37,5 @@ bun run type-check # solo controllo dei tipi con vue-tsc
 
 ## Nota sul toolchain
 
-Il tema chiaro/scuro usa la classe `.dark` sul root (persistita in `localStorage`).
 Il file `src/shims-vue.d.ts` è necessario per l'import dei `.vue` dai file `.ts`
 (router e `main.ts`) con questa combinazione di versioni di `vue-tsc`.

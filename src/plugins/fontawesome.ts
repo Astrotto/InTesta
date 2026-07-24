@@ -2,8 +2,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faBars,
   faXmark,
-  faSun,
-  faMoon,
   faScissors,
   faPalette,
   faSpa,
@@ -35,8 +33,6 @@ export function registerIcons(): void {
   library.add(
     faBars,
     faXmark,
-    faSun,
-    faMoon,
     faScissors,
     faPalette,
     faSpa,
