@@ -4,8 +4,8 @@
    Palette — mood "urban jungle atelier", allineata agli interni reali del
    salone: legno noce quasi nero delle mensole, poltrone in pelle nera,
    parete botanica con foglie di palma/banano. Verde palma deciso come nota
-   naturale al posto della salvia opaca, legno più scuro, terracotta bruciata
-   come accento caldo. Più contrasto, meno "spa pastello".
+   naturale al posto della salvia opaca, legno più scuro, oro caldo come
+   accento. Più contrasto, meno "spa pastello".
    ========================================================================== */
 @theme {
   /* Tipografia */
@@ -20,8 +20,8 @@
   --color-muted: #75695c;
   --color-primary: #2e2015;
   --color-primary-soft: #4a3220;
-  --color-accent: #b4502e;
-  --color-accent-soft: #dd8c62;
+  --color-accent: #b8912f;
+  --color-accent-soft: #d9b662;
   --color-blush: #3f6b45;
   --color-border: #e2d5bf;
 
