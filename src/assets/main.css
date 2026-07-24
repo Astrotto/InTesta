@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/* Abilita il dark mode tramite classe .dark sull'elemento root */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Palette — mood "urban jungle atelier", allineata agli interni reali del
+   salone: legno noce quasi nero delle mensole, poltrone in pelle nera,
+   parete botanica con foglie di palma/banano. Verde palma deciso come nota
+   naturale al posto della salvia opaca, legno più scuro, terracotta bruciata
+   come accento caldo. Più contrasto, meno "spa pastello".
+   ========================================================================== */
+@theme {
+  /* Tipografia */
+  --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  /* Colori — tema chiaro (default) */
+  --color-background: #f6f1e7;
+  --color-surface: #ffffff;
+  --color-surface-alt: #ece1cd;
+  --color-foreground: #201a14;
+  --color-muted: #75695c;
+  --color-primary: #2e2015;
+  --color-primary-soft: #4a3220;
+  --color-accent: #b4502e;
+  --color-accent-soft: #dd8c62;
+  --color-blush: #3f6b45;
+  --color-border: #e2d5bf;
+
+  /* Ombre morbide */
+  --shadow-soft: 0 10px 40px -12px rgba(38, 24, 12, 0.22);
+}
+
+/* Override tema scuro */
+.dark {
+  --color-background: #100c09;
+  --color-surface: #191310;
+  --color-surface-alt: #221913;
+  --color-foreground: #f3ead9;
+  --color-muted: #a89684;
+  --color-primary: #c99567;
+  --color-primary-soft: #a9754e;
+  --color-accent: #e2865a;
+  --color-accent-soft: #9c5030;
+  --color-blush: #74b389;
+  --color-border: #2b2015;
+
+  --shadow-soft: 0 10px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-soft);
+  border-radius: 9999px;
+}
+
+/* Utility per animazione di ingresso al reveal */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fade-up 0.7s ease forwards;
+}
