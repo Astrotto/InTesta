@@ -33,19 +33,13 @@ const linkProps = computed(() => {
   return {}
 })
 
-// Ogni variante piena si stacca in hover con un'ombra piena e spostata:
-// il pulsante sembra un blocco fisico, non una pillola.
 const variantClasses = computed<string>(() => {
   const map: Record<Variant, string> = {
-    primary:
-      'px-7 py-3.5 bg-primary text-background hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[var(--shadow-hard-accent-sm)]',
-    accent:
-      'px-7 py-3.5 bg-accent text-primary hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[var(--shadow-hard-sm)]',
-    outline:
-      'px-7 py-3.5 border border-primary/50 text-foreground hover:border-primary hover:bg-primary hover:text-background',
-    ghost: 'py-3.5 text-foreground hover:text-accent',
-    surface:
-      'px-7 py-3.5 border border-surface/50 text-surface hover:bg-surface hover:text-primary',
+    primary: 'bg-primary text-surface hover:bg-primary-soft shadow-[var(--shadow-soft)]',
+    accent: 'bg-accent text-surface hover:brightness-105 shadow-[var(--shadow-soft)]',
+    outline: 'border border-primary/40 text-foreground hover:bg-surface-alt',
+    ghost: 'text-foreground hover:bg-surface-alt',
+    surface: 'border border-surface/40 bg-surface/10 text-surface backdrop-blur-sm hover:bg-surface/20',
   }
   return map[props.variant]
 })
@@ -55,19 +49,19 @@ const variantClasses = computed<string>(() => {
   <component
     :is="tag"
     v-bind="linkProps"
-    class="group inline-flex items-center justify-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    class="group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3 text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     :class="[variantClasses, block ? 'w-full' : '']"
   >
     <FontAwesomeIcon
       v-if="icon && !iconRight"
       :icon="icon"
-      class="text-[1em] transition-transform duration-200 group-hover:-translate-y-0.5"
+      class="text-[0.9em] transition-transform duration-300 group-hover:-translate-y-0.5"
     />
     <span><slot /></span>
     <FontAwesomeIcon
       v-if="icon && iconRight"
       :icon="icon"
-      class="text-[1em] transition-transform duration-200 group-hover:translate-x-1"
+      class="text-[0.9em] transition-transform duration-300 group-hover:translate-x-1"
     />
   </component>
 </template>

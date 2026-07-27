@@ -53,41 +53,37 @@ const contacts: ContactItem[] = [
     />
 
     <!-- CONTATTI + MAPPA -->
-    <section class="mx-auto max-w-6xl px-5 pt-16 pb-16 lg:px-8">
+    <section class="mx-auto max-w-6xl px-5 pb-16 lg:px-8">
       <div class="grid gap-6 lg:grid-cols-2">
-        <!-- Colonna contatti: righe squadrate incolonnate -->
-        <div v-reveal class="flex flex-col">
+        <!-- Colonna contatti -->
+        <div v-reveal class="flex flex-col gap-4">
           <a
             v-for="contact in contacts"
             :key="contact.label"
             :href="contact.href"
             :target="contact.external ? '_blank' : undefined"
             :rel="contact.external ? 'noopener noreferrer' : undefined"
-            class="group flex items-center gap-5 border border-border border-b-0 bg-surface p-6 transition-colors duration-200 last:border-b hover:bg-surface-alt"
+            class="group flex items-center gap-4 rounded-3xl border border-border bg-surface p-6 transition-all duration-300 hover:border-accent/50 hover:shadow-[var(--shadow-soft)]"
           >
             <span
-              class="flex h-14 w-14 shrink-0 items-center justify-center border border-primary/20 text-xl text-accent transition-colors duration-200 group-hover:border-primary group-hover:bg-primary"
+              class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-surface-alt text-xl text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-surface"
             >
               <FontAwesomeIcon :icon="contact.icon" />
             </span>
             <div class="min-w-0">
-              <p class="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-muted">
+              <p class="text-xs font-medium uppercase tracking-wider text-muted">
                 {{ contact.label }}
               </p>
-              <p class="mt-1 truncate font-medium text-foreground">{{ contact.value }}</p>
+              <p class="truncate font-medium text-foreground">{{ contact.value }}</p>
             </div>
             <FontAwesomeIcon
               icon="arrow-right"
-              class="ml-auto text-muted transition-all duration-200 group-hover:translate-x-1 group-hover:text-accent"
+              class="ml-auto text-muted transition-transform duration-300 group-hover:translate-x-1 group-hover:text-accent"
             />
           </a>
 
-          <div
-            class="mt-6 flex flex-wrap items-center justify-between gap-4 border-l-2 border-accent bg-surface-alt px-6 py-5"
-          >
-            <p class="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
-              Seguici e resta aggiornata
-            </p>
+          <div class="mt-2 flex items-center justify-between gap-4 rounded-3xl bg-surface-alt px-6 py-5">
+            <p class="text-sm text-muted">Seguici e resta aggiornata</p>
             <SocialLinks size="sm" />
           </div>
         </div>

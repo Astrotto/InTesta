@@ -6,11 +6,6 @@
    parete botanica con foglie di palma/banano. Verde palma deciso come nota
    naturale al posto della salvia opaca, legno più scuro, oro caldo come
    accento. Più contrasto, meno "spa pastello".
-
-   Linguaggio formale — spigolo vivo. Nessun raggio di curvatura in tutto il
-   sito: le forme sono rettangoli netti, tagli a 45° e linee sottili. Le
-   ombre non sono più sfocate ma piene e spostate (hard shadow), così il
-   layout legge come una griglia editoriale invece che come una spa.
    ========================================================================== */
 @theme {
   /* Tipografia */
@@ -28,22 +23,10 @@
   --color-accent: #b8912f;
   --color-accent-soft: #d9b662;
   --color-blush: #3f6b45;
-  --color-border: #d8c8ac;
+  --color-border: #e2d5bf;
 
-  /* Ombre piene, mai sfocate */
-  --shadow-hard: 10px 10px 0 0 var(--color-primary);
-  --shadow-hard-sm: 6px 6px 0 0 var(--color-primary);
-  --shadow-hard-accent: 10px 10px 0 0 var(--color-accent);
-  --shadow-hard-accent-sm: 6px 6px 0 0 var(--color-accent);
-
-  /* Nessun raggio: annulla i default del tema */
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-full: 0px;
+  /* Ombre morbide */
+  --shadow-soft: 0 10px 40px -12px rgba(38, 24, 12, 0.22);
 }
 
 /* ==========================================================================
@@ -66,102 +49,26 @@ body {
 
 ::selection {
   background-color: var(--color-accent);
-  color: var(--color-primary);
+  color: var(--color-surface);
 }
 
-/* Scrollbar squadrata */
+/* Scrollbar discreta */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-background);
-  border-left: 1px solid var(--color-border);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary-soft);
+  border-radius: 9999px;
 }
 
-/* ==========================================================================
-   Forme angolari riutilizzabili
-   ========================================================================== */
-
-/* Angolo superiore destro tagliato a 45° — per i blocchi pieni (senza bordo,
-   perché il clip-path taglierebbe anche quello). */
-.cut-tr {
-  clip-path: polygon(0 0, calc(100% - 2.5rem) 0, 100% 2.5rem, 100% 100%, 0 100%);
-}
-
-/* Taglio in diagonale su due angoli opposti: usato sui blocchi CTA scuri. */
-.cut-diag {
-  clip-path: polygon(
-    0 0,
-    calc(100% - 3rem) 0,
-    100% 3rem,
-    100% 100%,
-    3rem 100%,
-    0 calc(100% - 3rem)
-  );
-}
-
-/* Campitura a tratteggio diagonale, sostituisce gli aloni sfocati. */
-.hatch {
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--color-border) 0 1px,
-    transparent 1px 9px
-  );
-}
-.hatch-accent {
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--color-accent) 0 1px,
-    transparent 1px 10px
-  );
-}
-
-/* Squadra d'angolo che compare in hover sulle card. */
-.edge-card {
-  position: relative;
-}
-.edge-card::after {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 1.35rem;
-  height: 1.35rem;
-  border-top: 2px solid var(--color-accent);
-  border-left: 2px solid var(--color-accent);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-.edge-card:hover::after,
-.group:hover .edge-card::after {
-  opacity: 1;
-}
-
-/* Occhiello di sezione preceduto da un filetto. */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.eyebrow::before {
-  content: '';
-  width: 2.25rem;
-  height: 1px;
-  background: var(--color-accent);
-  flex: none;
-}
-
-/* ==========================================================================
-   Reveal — ingresso netto, senza rimbalzi
-   ========================================================================== */
+/* Utility per animazione di ingresso al reveal */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -173,13 +80,5 @@ body {
   opacity: 0;
 }
 .reveal.is-visible {
-  animation: fade-up 0.6s cubic-bezier(0.2, 0.85, 0.25, 1) forwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.is-visible {
-    opacity: 1;
-    animation: none;
-  }
+  animation: fade-up 0.7s ease forwards;
 }
