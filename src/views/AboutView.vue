@@ -3,6 +3,7 @@ import { salon } from '@/data/salon'
 import PageHero from '@/components/layout/PageHero.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
+import HandUnderline from '@/components/ui/HandUnderline.vue'
 import SocialLinks from '@/components/ui/SocialLinks.vue'
 
 interface Highlight {
@@ -92,12 +93,12 @@ const highlights: Highlight[] = [
         eyebrow="I nostri valori"
         title="Cosa ci rende In Testa"
       />
-      <div class="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+      <div class="stagger-grid mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div
           v-for="(item, i) in highlights"
           :key="item.title"
           v-reveal="i * 90"
-          class="group bg-surface p-8 transition-colors duration-200 hover:bg-surface-alt"
+          class="edge-card group relative border border-border bg-surface p-8 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-primary hover:bg-surface-alt hover:shadow-[var(--shadow-hard-sm)]"
         >
           <span
             class="mb-5 flex h-14 w-14 items-center justify-center border border-primary/20 text-lg text-accent transition-colors duration-200 group-hover:border-primary group-hover:bg-primary"
@@ -122,7 +123,7 @@ const highlights: Highlight[] = [
           <h2 class="font-display text-3xl font-medium text-background sm:text-4xl">
             Ti aspettiamo da In Testa
           </h2>
-          <span class="mx-auto mt-6 block h-[2px] w-16 bg-accent" aria-hidden="true" />
+          <HandUnderline tone="accent" width="4rem" class="mx-auto mt-6" />
           <p class="mx-auto mt-6 max-w-xl text-background/75">
             Prenota il tuo momento di bellezza e benessere: saremo felici di accoglierti.
           </p>

@@ -43,13 +43,13 @@ const steps: Step[] = [
         title="Un percorso pensato per te"
         subtitle="Quattro passi semplici per arrivare al risultato che sogni."
       />
-      <!-- percorso a step: filetto superiore marcato e numerazione fuori scala -->
-      <div class="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+      <!-- percorso a step: card indipendenti a scacchiera, filetto superiore marcato in hover -->
+      <div class="stagger-grid mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div
           v-for="(step, i) in steps"
           :key="step.title"
           v-reveal="i * 90"
-          class="group relative border-t-2 border-transparent bg-surface p-8 transition-colors duration-200 hover:border-accent hover:bg-surface-alt"
+          class="edge-card group relative border border-border border-t-2 border-t-transparent bg-surface p-8 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-t-accent hover:bg-surface-alt hover:shadow-[var(--shadow-hard-sm)]"
         >
           <span
             class="absolute top-5 right-6 font-display text-5xl font-semibold leading-none text-surface-alt transition-colors duration-200 group-hover:text-accent/30"

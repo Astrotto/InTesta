@@ -77,13 +77,13 @@ const tags: Tag[] = [
         </div>
       </div>
 
-      <!-- Citazioni brevi: strisce affiancate, separate da filetti -->
-      <div class="mt-6 grid gap-px border border-border bg-border sm:grid-cols-3">
+      <!-- Citazioni brevi: card indipendenti a scacchiera -->
+      <div class="stagger-grid mt-6 grid gap-6 sm:grid-cols-3">
         <blockquote
           v-for="(quote, i) in shortQuotes"
           :key="quote"
           v-reveal="i * 90"
-          class="border-t-2 border-accent bg-surface-alt p-7 text-center"
+          class="border border-border border-t-2 border-t-accent bg-surface-alt p-7 text-center"
         >
           <FontAwesomeIcon icon="quote-left" class="text-2xl text-accent/40" />
           <p class="mt-3 text-sm font-medium italic leading-relaxed text-foreground">

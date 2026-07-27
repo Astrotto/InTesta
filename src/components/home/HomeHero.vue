@@ -2,6 +2,7 @@
 import { salon } from '@/data/salon'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import StarRating from '@/components/ui/StarRating.vue'
+import HandUnderline from '@/components/ui/HandUnderline.vue'
 </script>
 
 <template>
@@ -33,9 +34,9 @@ import StarRating from '@/components/ui/StarRating.vue'
         >
           Il tuo biondo,<br />
           la nostra
-          <span class="relative italic text-accent">
+          <span class="relative font-hand text-accent">
             firma
-            <span class="absolute inset-x-0 -bottom-1 h-[4px] bg-accent/50" />
+            <HandUnderline tone="accent" width="100%" class="absolute inset-x-0 -bottom-1" />
           </span>
         </h1>
 
