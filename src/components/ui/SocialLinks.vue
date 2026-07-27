@@ -30,8 +30,8 @@ const socials: Social[] = [
       target="_blank"
       rel="noopener noreferrer"
       :aria-label="social.label"
-      class="inline-flex items-center justify-center rounded-full border border-border text-foreground transition-all duration-300 hover:border-accent hover:bg-accent hover:text-surface"
-      :class="size === 'sm' ? 'h-9 w-9 text-sm' : 'h-11 w-11'"
+      class="inline-flex items-center justify-center border border-primary/30 text-foreground transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-background hover:shadow-[4px_4px_0_0_var(--color-accent)]"
+      :class="size === 'sm' ? 'h-10 w-10 text-sm' : 'h-12 w-12'"
     >
       <FontAwesomeIcon :icon="social.icon" />
     </a>

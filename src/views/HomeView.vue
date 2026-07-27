@@ -32,15 +32,21 @@ const featuredServices = services.slice(0, 3)
         title="Un salone che mette te al centro"
         subtitle="Colore, taglio e benessere con la cura di chi ama davvero il proprio lavoro."
       />
-      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- griglia continua: le card condividono i filetti, come una tabella -->
+      <div class="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         <div
           v-for="(value, i) in values"
           :key="value.title"
           v-reveal="i * 90"
-          class="rounded-3xl border border-border bg-surface p-7 text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+          class="group relative bg-surface p-8 transition-colors duration-200 hover:bg-surface-alt"
         >
           <span
-            class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-alt text-xl text-accent"
+            class="absolute top-6 right-6 font-display text-sm font-semibold text-muted/50"
+          >
+            0{{ i + 1 }}
+          </span>
+          <span
+            class="mb-5 flex h-14 w-14 items-center justify-center border border-primary/20 text-xl text-accent transition-colors duration-200 group-hover:border-primary group-hover:bg-primary group-hover:text-accent"
           >
             <FontAwesomeIcon :icon="value.icon" />
           </span>
@@ -51,7 +57,7 @@ const featuredServices = services.slice(0, 3)
     </section>
 
     <!-- SERVIZI (teaser) -->
-    <section class="bg-surface-alt/60 py-20 lg:py-28">
+    <section class="border-y border-border bg-surface-alt/60 py-20 lg:py-28">
       <div class="mx-auto max-w-6xl px-5 lg:px-8">
         <div class="flex flex-col items-end justify-between gap-6 sm:flex-row">
           <SectionHeading
@@ -75,19 +81,29 @@ const featuredServices = services.slice(0, 3)
     <section class="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
       <div class="grid items-center gap-14 lg:grid-cols-2">
         <div v-reveal class="relative">
+          <!-- blocco sfalsato che fa da ombra piena alla citazione -->
           <div
-            class="relative overflow-hidden rounded-[2rem] bg-[radial-gradient(120%_120%_at_20%_10%,var(--color-surface-alt)_0%,var(--color-primary)_140%)] p-10 shadow-[var(--shadow-soft)]"
-          >
-            <FontAwesomeIcon icon="quote-left" class="text-4xl text-accent" />
-            <p class="mt-5 font-display text-2xl font-medium leading-snug text-surface">
+            class="absolute inset-0 translate-x-3 translate-y-3 border border-accent"
+            aria-hidden="true"
+          />
+          <div class="cut-tr relative bg-primary p-10">
+            <div class="hatch-accent absolute right-0 bottom-0 h-24 w-24 opacity-30" aria-hidden="true" />
+            <FontAwesomeIcon icon="quote-left" class="relative text-4xl text-accent" />
+            <p class="relative mt-5 font-display text-2xl font-medium leading-snug text-background">
               Da Pina esci sempre soddisfatta: solare, simpatica e sempre pronta a
               farti fare una risata.
             </p>
-            <p class="mt-6 text-sm text-surface/80">— dalle recensioni delle nostre clienti</p>
+            <p
+              class="relative mt-7 border-t border-background/20 pt-5 text-[0.65rem] uppercase tracking-[0.18em] text-background/70"
+            >
+              dalle recensioni delle nostre clienti
+            </p>
           </div>
         </div>
         <div v-reveal="120">
-          <p class="text-xs font-medium uppercase tracking-[0.3em] text-accent">La nostra storia</p>
+          <p class="eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-accent">
+            La nostra storia
+          </p>
           <h2 class="mt-4 font-display text-3xl font-medium leading-tight text-foreground sm:text-4xl">
             Passione per il colore, attenzione per le persone
           </h2>
@@ -110,7 +126,7 @@ const featuredServices = services.slice(0, 3)
     </section>
 
     <!-- RECENSIONI -->
-    <section class="bg-surface-alt/60 py-20 lg:py-28">
+    <section class="border-y border-border bg-surface-alt/60 py-20 lg:py-28">
       <div class="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Dicono di noi"
@@ -127,18 +143,19 @@ const featuredServices = services.slice(0, 3)
     </section>
 
     <!-- CTA FINALE -->
-    <section class="mx-auto max-w-6xl px-5 pb-24 lg:px-8">
+    <section class="mx-auto max-w-6xl px-5 py-24 lg:px-8">
       <div
         v-reveal
-        class="relative overflow-hidden rounded-[2.5rem] bg-primary px-8 py-16 text-center shadow-[var(--shadow-soft)] sm:px-16"
+        class="cut-diag relative bg-primary px-8 py-16 text-center sm:px-16"
       >
-        <div class="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
-        <div class="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-blush/20 blur-3xl" />
+        <div class="hatch-accent absolute top-0 left-0 h-40 w-40 opacity-25" aria-hidden="true" />
+        <div class="hatch-accent absolute right-0 bottom-0 h-40 w-40 opacity-25" aria-hidden="true" />
         <div class="relative">
-          <h2 class="font-display text-3xl font-medium text-surface sm:text-4xl md:text-5xl">
+          <h2 class="font-display text-3xl font-medium text-background sm:text-4xl md:text-5xl">
             Pronta per il tuo nuovo look?
           </h2>
-          <p class="mx-auto mt-4 max-w-xl text-surface/80">
+          <span class="mx-auto mt-6 block h-[2px] w-16 bg-accent" aria-hidden="true" />
+          <p class="mx-auto mt-6 max-w-xl text-background/75">
             Scrivici su WhatsApp o chiamaci: prenotare da In Testa è semplice e veloce.
           </p>
           <div class="mt-9 flex flex-wrap items-center justify-center gap-3">

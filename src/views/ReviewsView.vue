@@ -28,32 +28,43 @@ const tags: Tag[] = [
     />
 
     <!-- RIEPILOGO RATING -->
-    <section class="mx-auto max-w-6xl px-5 pb-8 lg:px-8">
-      <div
-        v-reveal
-        class="grid gap-8 rounded-[2rem] border border-border bg-surface p-8 shadow-[var(--shadow-soft)] sm:grid-cols-[auto_1fr] sm:items-center sm:p-10"
-      >
-        <div class="text-center sm:border-r sm:border-border sm:pr-10">
-          <p class="font-display text-6xl font-semibold text-foreground">
-            {{ salon.rating.toFixed(1) }}
-          </p>
-          <div class="mt-2 flex justify-center">
-            <StarRating :rating="salon.rating" />
+    <section class="mx-auto max-w-6xl px-5 pt-16 pb-8 lg:px-8">
+      <div v-reveal class="relative">
+        <div
+          class="absolute inset-0 translate-x-2.5 translate-y-2.5 border border-accent"
+          aria-hidden="true"
+        />
+        <div
+          class="relative grid gap-8 border border-primary bg-surface p-8 sm:grid-cols-[auto_1fr] sm:items-center sm:p-10"
+        >
+          <div class="text-center sm:border-r sm:border-border sm:pr-10">
+            <p class="font-display text-7xl font-semibold leading-none text-foreground">
+              {{ salon.rating.toFixed(1) }}
+            </p>
+            <div class="mt-3 flex justify-center">
+              <StarRating :rating="salon.rating" />
+            </div>
+            <p class="mt-3 text-[0.65rem] uppercase tracking-[0.16em] text-muted">
+              {{ salon.reviewsCount }} recensioni Google
+            </p>
           </div>
-          <p class="mt-2 text-sm text-muted">{{ salon.reviewsCount }} recensioni Google</p>
-        </div>
-        <div>
-          <p class="mb-4 text-sm text-muted">Le clienti parlano soprattutto di:</p>
-          <ul class="flex flex-wrap gap-3">
-            <li
-              v-for="tag in tags"
-              :key="tag.label"
-              class="inline-flex items-center gap-2 rounded-full bg-surface-alt px-4 py-2 text-sm text-foreground"
-            >
-              {{ tag.label }}
-              <span class="text-xs text-muted">{{ tag.count }}</span>
-            </li>
-          </ul>
+          <div>
+            <p class="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
+              Le clienti parlano soprattutto di
+            </p>
+            <ul class="flex flex-wrap gap-2">
+              <li
+                v-for="tag in tags"
+                :key="tag.label"
+                class="inline-flex items-center gap-2.5 border border-primary/25 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-foreground"
+              >
+                {{ tag.label }}
+                <span class="bg-accent px-1.5 py-0.5 text-[0.6rem] text-primary">
+                  {{ tag.count }}
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -66,13 +77,13 @@ const tags: Tag[] = [
         </div>
       </div>
 
-      <!-- Citazioni brevi -->
-      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+      <!-- Citazioni brevi: strisce affiancate, separate da filetti -->
+      <div class="mt-6 grid gap-px border border-border bg-border sm:grid-cols-3">
         <blockquote
           v-for="(quote, i) in shortQuotes"
           :key="quote"
           v-reveal="i * 90"
-          class="rounded-3xl border border-border bg-surface-alt p-6 text-center"
+          class="border-t-2 border-accent bg-surface-alt p-7 text-center"
         >
           <FontAwesomeIcon icon="quote-left" class="text-2xl text-accent/40" />
           <p class="mt-3 text-sm font-medium italic leading-relaxed text-foreground">
@@ -86,9 +97,10 @@ const tags: Tag[] = [
     <section class="mx-auto max-w-6xl px-5 pb-24 lg:px-8">
       <div
         v-reveal
-        class="flex flex-col items-center justify-between gap-6 rounded-[2rem] border border-border bg-surface px-8 py-12 text-center shadow-[var(--shadow-soft)] sm:flex-row sm:text-left"
+        class="relative flex flex-col items-center justify-between gap-6 border-y-2 border-primary bg-surface px-8 py-12 text-center sm:flex-row sm:text-left"
       >
-        <div>
+        <div class="hatch absolute inset-y-0 right-0 w-24 opacity-60" aria-hidden="true" />
+        <div class="relative">
           <h2 class="font-display text-2xl font-medium text-foreground sm:text-3xl">
             Sei stata da noi? Raccontalo!
           </h2>
@@ -98,7 +110,7 @@ const tags: Tag[] = [
           :href="salon.reviewUrl"
           variant="accent"
           icon="star"
-          class="shrink-0"
+          class="relative shrink-0"
         >
           Lascia una recensione
         </BaseButton>

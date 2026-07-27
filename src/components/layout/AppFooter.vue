@@ -8,15 +8,25 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="border-t border-border bg-surface-alt">
+  <footer class="border-t-2 border-primary bg-surface-alt">
+    <!-- filetto tratteggiato che chiude la pagina -->
+    <div class="hatch h-3 w-full border-b border-border" aria-hidden="true" />
+
     <div class="mx-auto max-w-6xl px-5 py-16 lg:px-8">
       <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <!-- Brand -->
         <div class="lg:col-span-1">
-          <div class="flex flex-col leading-none">
-            <span class="font-display text-2xl font-semibold text-foreground">in Testa</span>
-            <span class="text-[0.6rem] font-medium uppercase tracking-[0.3em] text-accent">
-              Hair Salon
+          <div class="flex items-center gap-3">
+            <span
+              class="flex h-10 w-10 items-center justify-center bg-primary font-display text-lg font-semibold text-background"
+            >
+              iT
+            </span>
+            <span class="flex flex-col leading-none">
+              <span class="font-display text-2xl font-semibold text-foreground">in Testa</span>
+              <span class="text-[0.6rem] font-medium uppercase tracking-[0.3em] text-accent">
+                Hair Salon
+              </span>
             </span>
           </div>
           <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted">
@@ -29,16 +39,21 @@ const currentYear = new Date().getFullYear()
 
         <!-- Navigazione -->
         <div>
-          <h3 class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
+          <h3
+            class="mb-5 border-b border-primary/30 pb-3 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-foreground"
+          >
             Naviga
           </h3>
           <ul class="space-y-2.5">
             <li v-for="link in links" :key="link.to">
               <RouterLink
                 :to="link.to"
-                class="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
+                class="group inline-flex items-center gap-3 text-sm text-muted transition-colors hover:text-accent"
               >
-                <FontAwesomeIcon icon="chevron-right" class="text-[0.6rem]" />
+                <span
+                  class="h-px w-4 bg-border transition-all duration-200 group-hover:w-7 group-hover:bg-accent"
+                  aria-hidden="true"
+                />
                 {{ link.label }}
               </RouterLink>
             </li>
@@ -47,7 +62,9 @@ const currentYear = new Date().getFullYear()
 
         <!-- Contatti -->
         <div>
-          <h3 class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
+          <h3
+            class="mb-5 border-b border-primary/30 pb-3 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-foreground"
+          >
             Contatti
           </h3>
           <ul class="space-y-3 text-sm text-muted">
@@ -77,16 +94,18 @@ const currentYear = new Date().getFullYear()
 
         <!-- Orari -->
         <div>
-          <h3 class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
+          <h3
+            class="mb-5 border-b border-primary/30 pb-3 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-foreground"
+          >
             Orari
           </h3>
           <ul class="space-y-2 text-sm">
             <li
               v-for="entry in openingHours"
               :key="entry.day"
-              class="flex items-center justify-between gap-4"
+              class="flex items-center justify-between gap-4 border-b border-border/60 pb-2"
             >
-              <span class="text-muted">{{ entry.day }}</span>
+              <span class="text-muted uppercase tracking-[0.08em]">{{ entry.day }}</span>
               <span :class="entry.closed ? 'text-muted/60' : 'font-medium text-foreground'">
                 {{ entry.hours }}
               </span>
@@ -96,7 +115,7 @@ const currentYear = new Date().getFullYear()
       </div>
 
       <div
-        class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-center text-xs text-muted sm:flex-row sm:text-left"
+        class="mt-14 flex flex-col items-center justify-between gap-4 border-t-2 border-primary/70 pt-8 text-center text-[0.7rem] uppercase tracking-[0.12em] text-muted sm:flex-row sm:text-left"
       >
         <p>© {{ currentYear }} {{ salon.name }}. Tutti i diritti riservati.</p>
         <p class="flex items-center gap-1.5">
