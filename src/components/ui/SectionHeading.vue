@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import HandUnderline from '@/components/ui/HandUnderline.vue'
-
 defineProps<{
   eyebrow?: string
   title: string
@@ -23,8 +21,12 @@ defineProps<{
     <h2 class="font-display text-3xl font-medium leading-[1.05] text-foreground sm:text-4xl md:text-5xl">
       {{ title }}
     </h2>
-    <!-- tratto a mano libera al posto del filetto squadrato -->
-    <HandUnderline width="4rem" :class="align === 'left' ? '' : 'mx-auto'" />
+    <!-- filetto squadrato al posto della sottolineatura morbida -->
+    <span
+      class="mt-5 block h-[2px] w-16 bg-primary"
+      :class="align === 'left' ? '' : 'mx-auto'"
+      aria-hidden="true"
+    />
     <p v-if="subtitle" class="mt-5 text-base leading-relaxed text-muted">
       {{ subtitle }}
     </p>

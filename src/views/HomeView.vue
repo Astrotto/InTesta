@@ -4,7 +4,6 @@ import HomeHero from '@/components/home/HomeHero.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
-import HandUnderline from '@/components/ui/HandUnderline.vue'
 
 interface Value {
   icon: string
@@ -33,13 +32,13 @@ const featuredServices = services.slice(0, 3)
         title="Un salone che mette te al centro"
         subtitle="Colore, taglio e benessere con la cura di chi ama davvero il proprio lavoro."
       />
-      <!-- griglia spezzata: card indipendenti che scendono a scacchiera -->
-      <div class="stagger-grid mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- griglia continua: le card condividono i filetti, come una tabella -->
+      <div class="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         <div
           v-for="(value, i) in values"
           :key="value.title"
           v-reveal="i * 90"
-          class="edge-card group relative border border-border bg-surface p-8 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-primary hover:bg-surface-alt hover:shadow-[var(--shadow-hard-sm)]"
+          class="group relative bg-surface p-8 transition-colors duration-200 hover:bg-surface-alt"
         >
           <span
             class="absolute top-6 right-6 font-display text-sm font-semibold text-muted/50"
@@ -155,7 +154,7 @@ const featuredServices = services.slice(0, 3)
           <h2 class="font-display text-3xl font-medium text-background sm:text-4xl md:text-5xl">
             Pronta per il tuo nuovo look?
           </h2>
-          <HandUnderline tone="accent" width="4rem" class="mx-auto mt-6" />
+          <span class="mx-auto mt-6 block h-[2px] w-16 bg-accent" aria-hidden="true" />
           <p class="mx-auto mt-6 max-w-xl text-background/75">
             Scrivici su WhatsApp o chiamaci: prenotare da In Testa è semplice e veloce.
           </p>

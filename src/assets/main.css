@@ -16,7 +16,6 @@
   /* Tipografia */
   --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
   --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
-  --font-hand: 'Caveat', cursive;
 
   /* Colori — tema chiaro (default) */
   --color-background: #f6f1e7;
@@ -140,15 +139,6 @@ body {
 .edge-card:hover::after,
 .group:hover .edge-card::after {
   opacity: 1;
-}
-
-/* Griglia spezzata: alcune card scendono di livello invece di allinearsi
-   tutte sulla stessa riga, per rompere l'effetto "tabella". */
-@media (min-width: 1024px) {
-  .stagger-grid > :nth-child(4n + 2),
-  .stagger-grid > :nth-child(4n + 3) {
-    margin-top: 2.5rem;
-  }
 }
 
 /* Occhiello di sezione preceduto da un filetto. */
