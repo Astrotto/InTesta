@@ -16,7 +16,8 @@ const initials = props.review.author
 
 <template>
   <article
-    class="flex h-full flex-col rounded-3xl border border-border bg-surface p-8 transition-all duration-500 hover:shadow-[var(--shadow-soft)]"
+    v-tilt="5"
+    class="relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface p-8 hover:border-accent/40"
   >
     <FontAwesomeIcon icon="quote-left" class="text-3xl text-accent/40" />
 

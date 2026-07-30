@@ -2,38 +2,14 @@
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { works, type WorkItem } from '@/data/salon'
 
-const props = withDefaults(
-  defineProps<{
-    /** Mostra solo i primi N lavori (per il teaser in home) */
-    limit?: number
-    /** Filtri per categoria: disattivabili quando la galleria è ridotta */
-    showFilters?: boolean
-  }>(),
-  {
-    showFilters: true,
-  },
+const props = defineProps<{
+  /** Mostra solo i primi N lavori (per il teaser in home) */
+  limit?: number
+}>()
+
+const items = computed<WorkItem[]>(() =>
+  props.limit ? works.slice(0, props.limit) : works,
 )
-
-interface Filter {
-  id: string
-  label: string
-  match: (item: WorkItem) => boolean
-}
-
-const filters: Filter[] = [
-  { id: 'tutti', label: 'Tutti', match: () => true },
-  { id: 'colore', label: 'Colore & Biondi', match: (item) => item.category === 'colore' },
-  { id: 'taglio', label: 'Taglio & Piega', match: (item) => item.category === 'taglio' },
-  { id: 'video', label: 'Video', match: (item) => item.type === 'video' },
-]
-
-const activeFilter = ref<string>('tutti')
-
-const items = computed<WorkItem[]>(() => {
-  const match = filters.find((filter) => filter.id === activeFilter.value)?.match ?? (() => true)
-  const filtered = props.showFilters ? works.filter(match) : works
-  return props.limit ? filtered.slice(0, props.limit) : filtered
-})
 
 /* --------------------------------------------------------------------------
    Lightbox
@@ -59,9 +35,6 @@ function step(delta: number): void {
   openIndex.value = (openIndex.value + delta + total) % total
 }
 
-// Cambiando filtro gli indici non sono più validi: chiudiamo la lightbox
-watch(activeFilter, close)
-
 // Blocca lo scroll del body e porta il focus nel dialog quando è aperto
 watch(openIndex, async (value) => {
   document.body.style.overflow = value === null ? '' : 'hidden'
@@ -86,65 +59,46 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <!-- FILTRI -->
-    <div v-if="showFilters" v-reveal class="mt-10 flex flex-wrap justify-center gap-2.5">
-      <button
-        v-for="filter in filters"
-        :key="filter.id"
-        type="button"
-        class="rounded-full border px-5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        :class="
-          activeFilter === filter.id
-            ? 'border-primary bg-primary text-surface shadow-[var(--shadow-soft)]'
-            : 'border-border bg-surface text-muted hover:border-primary/30 hover:text-foreground'
-        "
-        :aria-pressed="activeFilter === filter.id"
-        @click="activeFilter = filter.id"
-      >
-        {{ filter.label }}
-      </button>
-    </div>
-
     <!-- GRIGLIA -->
     <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-      <button
-        v-for="(item, i) in items"
-        :key="item.src"
-        v-reveal="(i % 4) * 90"
-        type="button"
-        class="group relative aspect-[3/4] w-full overflow-hidden rounded-3xl bg-surface-alt text-left shadow-[var(--shadow-soft)] transition-all duration-500 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        @click="open(i)"
-      >
-        <img
-          :src="item.type === 'video' ? item.poster : item.src"
-          :alt="item.alt"
-          class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-          loading="lazy"
-          decoding="async"
-        />
-
-        <!-- velo per la leggibilità della didascalia -->
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-[#150e07]/85 via-[#150e07]/15 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"
-        />
-
-        <!-- badge video -->
-        <span
-          v-if="item.type === 'video'"
-          class="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/15 text-xs text-white backdrop-blur-sm transition-transform duration-500 group-hover:scale-110"
+      <div v-for="(item, i) in items" :key="item.src" v-reveal="(i % 4) * 90">
+        <button
+          v-tilt="9"
+          type="button"
+          class="group relative aspect-[3/4] w-full overflow-hidden rounded-3xl bg-surface-alt text-left shadow-[var(--shadow-soft)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          @click="open(i)"
         >
-          <FontAwesomeIcon icon="play" />
-        </span>
+          <img
+            :src="item.type === 'video' ? item.poster : item.src"
+            :alt="item.alt"
+            class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
+            loading="lazy"
+            decoding="async"
+          />
 
-        <div class="absolute inset-x-0 bottom-0 p-4">
-          <p class="font-display text-base font-medium leading-snug text-white sm:text-lg">
-            {{ item.title }}
-          </p>
-          <p class="mt-1 hidden text-xs leading-relaxed text-white/75 sm:block">
-            {{ item.caption }}
-          </p>
-        </div>
-      </button>
+          <!-- velo per la leggibilità della didascalia -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-[#150e07]/85 via-[#150e07]/15 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"
+          />
+
+          <!-- badge video -->
+          <span
+            v-if="item.type === 'video'"
+            class="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/15 text-xs text-white backdrop-blur-sm transition-transform duration-500 group-hover:scale-110"
+          >
+            <FontAwesomeIcon icon="play" />
+          </span>
+
+          <div class="absolute inset-x-0 bottom-0 p-4">
+            <p class="font-display text-base font-medium leading-snug text-white sm:text-lg">
+              {{ item.title }}
+            </p>
+            <p class="mt-1 hidden text-xs leading-relaxed text-white/75 sm:block">
+              {{ item.caption }}
+            </p>
+          </div>
+        </button>
+      </div>
     </div>
 
     <!-- LIGHTBOX -->

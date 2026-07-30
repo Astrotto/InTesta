@@ -8,7 +8,8 @@ defineProps<{
 
 <template>
   <article
-    class="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-[var(--shadow-soft)]"
+    v-tilt="6"
+    class="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface p-8 hover:border-accent/50"
   >
     <!-- alone decorativo -->
     <div

@@ -82,3 +82,64 @@ body {
 .reveal.is-visible {
   animation: fade-up 0.7s ease forwards;
 }
+
+/* ==========================================================================
+   Card 3D — inclinazione che segue il puntatore (direttiva v-tilt).
+   Le variabili sono aggiornate da JS; qui restano solo transizioni e
+   valori di riposo, così su touch la card è semplicemente statica.
+   ========================================================================== */
+.tilt-card {
+  --tilt-rx: 0deg;
+  --tilt-ry: 0deg;
+  --tilt-lift: 0px;
+  --tilt-scale: 1;
+  --tilt-glare: 0;
+  --tilt-gx: 50%;
+  --tilt-gy: 50%;
+
+  transform: perspective(900px) rotateX(var(--tilt-rx)) rotateY(var(--tilt-ry))
+    translate3d(0, var(--tilt-lift), 0) scale(var(--tilt-scale));
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease;
+}
+
+.tilt-card.is-tilting {
+  --tilt-lift: -8px;
+  --tilt-scale: 1.015;
+  --tilt-glare: 1;
+
+  will-change: transform;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  box-shadow:
+    0 34px 60px -28px rgba(38, 24, 12, 0.5),
+    0 14px 26px -18px rgba(38, 24, 12, 0.35);
+}
+
+/* riflesso caldo che segue il puntatore */
+.tilt-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--tilt-glare);
+  background: radial-gradient(
+    30% 40% at var(--tilt-gx) var(--tilt-gy),
+    rgba(255, 252, 244, 0.28),
+    rgba(255, 252, 244, 0) 70%
+  );
+  transition: opacity 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-card,
+  .tilt-card.is-tilting {
+    transform: none;
+  }
+}

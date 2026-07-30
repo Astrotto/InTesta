@@ -34,19 +34,19 @@ const featuredServices = services.slice(0, 3)
         subtitle="Colore, taglio e benessere con la cura di chi ama davvero il proprio lavoro."
       />
       <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div
-          v-for="(value, i) in values"
-          :key="value.title"
-          v-reveal="i * 90"
-          class="rounded-3xl border border-border bg-surface p-7 text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
-        >
-          <span
-            class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-alt text-xl text-accent"
+        <div v-for="(value, i) in values" :key="value.title" v-reveal="i * 90" class="h-full">
+          <div
+            v-tilt="6"
+            class="group relative h-full overflow-hidden rounded-3xl border border-border bg-surface p-7 text-center hover:border-accent/40"
           >
-            <FontAwesomeIcon :icon="value.icon" />
-          </span>
-          <h3 class="font-display text-xl font-medium text-foreground">{{ value.title }}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted">{{ value.text }}</p>
+            <span
+              class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-alt text-xl text-accent transition-colors duration-500 group-hover:bg-accent group-hover:text-surface"
+            >
+              <FontAwesomeIcon :icon="value.icon" />
+            </span>
+            <h3 class="font-display text-xl font-medium text-foreground">{{ value.title }}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{{ value.text }}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -79,7 +79,7 @@ const featuredServices = services.slice(0, 3)
         title="Il risultato, in foto e video"
         subtitle="Biondi luminosi, tagli su misura e pieghe curate: guarda cosa esce dalle nostre mani."
       />
-      <WorkGallery :limit="4" :show-filters="false" />
+      <WorkGallery :limit="4" />
       <div class="mt-10 text-center">
         <BaseButton to="/servizi#lavori" variant="outline" icon="arrow-right" icon-right>
           Guarda tutti i lavori
