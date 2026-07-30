@@ -22,6 +22,7 @@ import {
   faDroplet,
   faCircleCheck,
   faHandSparkles,
+  faHotTubPerson,
 } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
@@ -53,6 +54,7 @@ export function registerIcons(): void {
     faDroplet,
     faCircleCheck,
     faHandSparkles,
+    faHotTubPerson,
     faInstagram,
     faWhatsapp,
   )

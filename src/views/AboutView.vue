@@ -79,8 +79,69 @@ const highlights: Highlight[] = [
       </div>
     </section>
 
-    <!-- HIGHLIGHTS -->
+    <!-- SPAZI: SALONE & POSTAZIONI -->
     <section class="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
+      <SectionHeading
+        eyebrow="I nostri spazi"
+        title="Il Salone e le postazioni"
+        subtitle="Un ambiente curato nei dettagli, pensato per farti sentire coccolata dal primo momento."
+      />
+
+      <div class="mt-14">
+        <p v-reveal class="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          Il Salone
+        </p>
+        <div v-reveal="80" class="grid grid-cols-2 gap-4">
+          <img
+            src="/salone/IMG_5679.JPG.jpeg"
+            alt="Interno del salone In Testa, postazioni con specchi e parete verde"
+            class="aspect-[4/3] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]"
+            loading="lazy"
+          />
+          <img
+            src="/salone/IMG_5702.JPG.jpeg"
+            alt="Angolo coffee bar del salone In Testa"
+            class="aspect-[4/3] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="mt-14">
+        <p v-reveal class="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          Le postazioni
+        </p>
+        <div v-reveal="80" class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <img
+            src="/salone/postazione/IMG_5680.JPG.jpeg"
+            alt="Postazione di lavoro con specchio e spazzola"
+            class="aspect-[3/4] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]"
+            loading="lazy"
+          />
+          <img
+            src="/salone/postazione/IMG_5682.JPG.jpeg"
+            alt="Comandi della poltrona massaggiante"
+            class="aspect-[3/4] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]"
+            loading="lazy"
+          />
+          <img
+            src="/salone/postazione/IMG_5683.JPG.jpeg"
+            alt="Prodotti professionali Framesi Morphosis sulla mensola"
+            class="aspect-[3/4] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]"
+            loading="lazy"
+          />
+          <img
+            src="/salone/postazione/WhatsApp Image 2026-07-29 at 20.51.11.jpeg"
+            alt="Postazione lavaggio con doccetta"
+            class="aspect-[3/4] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="mx-auto max-w-6xl px-5 pb-20 lg:px-8 lg:pb-28">
       <SectionHeading
         eyebrow="I nostri valori"
         title="Cosa ci rende In Testa"

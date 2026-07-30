@@ -13,12 +13,7 @@ const currentYear = new Date().getFullYear()
       <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <!-- Brand -->
         <div class="lg:col-span-1">
-          <div class="flex flex-col leading-none">
-            <span class="font-display text-2xl font-semibold text-foreground">in Testa</span>
-            <span class="text-[0.6rem] font-medium uppercase tracking-[0.3em] text-accent">
-              Hair Salon
-            </span>
-          </div>
+          <img src="/logo.webp" alt="In Testa Hair Salon" class="h-24 w-auto" />
           <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {{ salon.tagline }} · Spa &amp; Wellness per capelli a Pratola Peligna.
           </p>

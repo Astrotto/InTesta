@@ -13,6 +13,7 @@ export function useNavigation(): { links: NavLink[] } {
     { label: 'Home', to: '/', icon: 'heart' },
     { label: 'Servizi', to: '/servizi', icon: 'scissors' },
     { label: 'Chi Siamo', to: '/chi-siamo', icon: 'spa' },
+    { label: 'Spa', to: '/spa', icon: 'hot-tub-person' },
     { label: 'Recensioni', to: '/recensioni', icon: 'star' },
     { label: 'Contatti', to: '/contatti', icon: 'location-dot' },
   ]
