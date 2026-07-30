@@ -18,11 +18,13 @@ import {
   faHeart,
   faGem,
   faLeaf,
+  faChevronLeft,
   faChevronRight,
   faDroplet,
   faCircleCheck,
   faHandSparkles,
   faHotTubPerson,
+  faPlay,
 } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
@@ -50,11 +52,13 @@ export function registerIcons(): void {
     faHeart,
     faGem,
     faLeaf,
+    faChevronLeft,
     faChevronRight,
     faDroplet,
     faCircleCheck,
     faHandSparkles,
     faHotTubPerson,
+    faPlay,
     faInstagram,
     faWhatsapp,
   )

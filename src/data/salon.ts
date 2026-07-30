@@ -23,6 +23,20 @@ export interface Review {
   text: string
 }
 
+export type WorkCategory = 'colore' | 'taglio'
+
+export interface WorkItem {
+  /** Immagine statica o video verticale girato in salone */
+  type: 'image' | 'video'
+  src: string
+  /** Fotogramma di anteprima: obbligatorio per i video, mostrato nella griglia */
+  poster?: string
+  title: string
+  caption: string
+  category: WorkCategory
+  alt: string
+}
+
 export interface SalonContact {
   name: string
   shortName: string
@@ -116,6 +130,80 @@ export const services: Service[] = [
     description:
       'Ti guidiamo nella scelta di colore e taglio più adatti, con un ascolto attento dei tuoi desideri.',
     features: ['Analisi del colore', 'Ascolto personalizzato', 'Consigli di mantenimento'],
+  },
+]
+
+/**
+ * Galleria "I nostri lavori": foto e video realizzati in salone.
+ * L'ordine alterna immagini e video per dare ritmo alla griglia.
+ */
+export const works: WorkItem[] = [
+  {
+    type: 'image',
+    src: '/capelli/IMG_5684.JPG.jpeg',
+    title: 'Balayage biondo luminoso',
+    caption: 'Schiariture su misura e onde morbide su capelli lunghi.',
+    category: 'colore',
+    alt: 'Capelli lunghi biondi con balayage e onde morbide sulle lunghezze',
+  },
+  {
+    type: 'video',
+    src: '/capelli/IMG_5688.MP4',
+    poster: '/capelli/IMG_5688-poster.jpg',
+    title: 'Biondo cenere su long bob',
+    caption: 'Un biondo freddo, compatto e luminoso su un taglio lineare.',
+    category: 'colore',
+    alt: 'Video di un long bob biondo cenere liscio realizzato in salone',
+  },
+  {
+    type: 'image',
+    src: '/capelli/IMG_5686.JPG.jpeg',
+    title: 'Biondo caldo, effetto liscio',
+    caption: 'Radici morbide e lunghezze dorate, finite con una piega lucida.',
+    category: 'colore',
+    alt: 'Capelli lunghi biondi lisci con radici scure sfumate',
+  },
+  {
+    type: 'image',
+    src: '/capelli/IMG_5699.JPG.jpeg',
+    title: 'Long bob mosso',
+    caption: 'Taglio medio con onde definite e riflessi ramati.',
+    category: 'taglio',
+    alt: 'Long bob castano mosso con riflessi ramati',
+  },
+  {
+    type: 'video',
+    src: '/capelli/IMG_5696.MP4',
+    poster: '/capelli/IMG_5696-poster.jpg',
+    title: 'Taglio uomo sfumato',
+    caption: 'Sfumatura precisa a macchinetta con disegno sul lato.',
+    category: 'taglio',
+    alt: 'Video di un taglio uomo con sfumatura laterale e disegno',
+  },
+  {
+    type: 'image',
+    src: '/capelli/IMG_5700.JPG.jpeg',
+    title: 'Bob biondo miele',
+    caption: 'Colpi di sole caldi e onde morbide su taglio medio.',
+    category: 'taglio',
+    alt: 'Taglio medio mosso con colpi di sole biondo miele',
+  },
+  {
+    type: 'video',
+    src: '/capelli/videoCapelli.MP4',
+    poster: '/capelli/videoCapelli-poster.jpg',
+    title: 'Schiariture su base castana',
+    caption: 'Luce sui volumi e movimento naturale, senza stacchi.',
+    category: 'colore',
+    alt: 'Video di capelli castani con schiariture dorate e onde',
+  },
+  {
+    type: 'image',
+    src: '/capelli/IMG_5698.JPG.jpeg',
+    title: 'Castano con riflessi dorati',
+    caption: 'Méches sottili che accendono la base senza scurirla.',
+    category: 'colore',
+    alt: 'Capelli castani mossi con méches dorate',
   },
 ]
 

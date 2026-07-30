@@ -2,6 +2,7 @@
 import { salon, services } from '@/data/salon'
 import HomeHero from '@/components/home/HomeHero.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
+import WorkGallery from '@/components/WorkGallery.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 
@@ -71,8 +72,23 @@ const featuredServices = services.slice(0, 3)
       </div>
     </section>
 
-    <!-- STORY -->
+    <!-- GALLERIA LAVORI (teaser) -->
     <section class="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
+      <SectionHeading
+        eyebrow="I nostri lavori"
+        title="Il risultato, in foto e video"
+        subtitle="Biondi luminosi, tagli su misura e pieghe curate: guarda cosa esce dalle nostre mani."
+      />
+      <WorkGallery :limit="4" :show-filters="false" />
+      <div class="mt-10 text-center">
+        <BaseButton to="/servizi#lavori" variant="outline" icon="arrow-right" icon-right>
+          Guarda tutti i lavori
+        </BaseButton>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="mx-auto max-w-6xl px-5 pb-20 lg:px-8 lg:pb-28">
       <div class="grid items-center gap-14 lg:grid-cols-2">
         <div v-reveal class="relative">
           <div

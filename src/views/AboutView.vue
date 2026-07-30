@@ -182,7 +182,7 @@ const highlights: Highlight[] = [
             <BaseButton :href="salon.whatsapp" variant="accent" :icon="['fab', 'whatsapp']">
               Prenota ora
             </BaseButton>
-            <BaseButton to="/contatti" variant="outline" icon="location-dot">
+            <BaseButton to="/contatti" variant="surface" icon="location-dot">
               Come raggiungerci
             </BaseButton>
           </div>

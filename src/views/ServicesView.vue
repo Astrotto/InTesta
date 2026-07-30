@@ -2,6 +2,7 @@
 import { salon, services } from '@/data/salon'
 import PageHero from '@/components/layout/PageHero.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
+import WorkGallery from '@/components/WorkGallery.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 
@@ -36,8 +37,18 @@ const steps: Step[] = [
       </div>
     </section>
 
+    <!-- GALLERIA LAVORI -->
+    <section id="lavori" class="mx-auto max-w-6xl scroll-mt-28 px-5 py-20 lg:px-8 lg:py-28">
+      <SectionHeading
+        eyebrow="I nostri lavori"
+        title="Colori e tagli realizzati in salone"
+        subtitle="Qualche risultato firmato In Testa: tocca una foto o un video per vederlo in grande."
+      />
+      <WorkGallery />
+    </section>
+
     <!-- PROCESSO -->
-    <section class="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
+    <section class="mx-auto max-w-6xl px-5 pb-20 lg:px-8 lg:pb-28">
       <SectionHeading
         eyebrow="Come lavoriamo"
         title="Un percorso pensato per te"
