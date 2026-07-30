@@ -54,9 +54,9 @@ const contacts: ContactItem[] = [
 
     <!-- CONTATTI + MAPPA -->
     <section class="mx-auto max-w-6xl px-5 pb-16 lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-2">
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <!-- Colonna contatti -->
-        <div v-reveal class="flex flex-col gap-4">
+        <div v-reveal class="flex min-w-0 flex-col gap-4">
           <a
             v-for="contact in contacts"
             :key="contact.label"

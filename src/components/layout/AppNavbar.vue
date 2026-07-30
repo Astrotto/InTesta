@@ -61,14 +61,11 @@ watch(
 
       <!-- Azioni -->
       <div class="flex items-center gap-2">
-        <BaseButton
-          :href="salon.whatsapp"
-          variant="accent"
-          :icon="['fab', 'whatsapp']"
-          class="hidden sm:inline-flex"
-        >
-          Prenota
-        </BaseButton>
+        <span class="hidden sm:inline-flex">
+          <BaseButton :href="salon.whatsapp" variant="accent" :icon="['fab', 'whatsapp']">
+            Prenota
+          </BaseButton>
+        </span>
         <button
           type="button"
           class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-surface-alt lg:hidden"
