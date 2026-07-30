@@ -15,7 +15,6 @@ const tags: Tag[] = [
   { label: 'Passione', count: 2 },
   { label: 'Simpatia', count: 2 },
   { label: 'Ambiente', count: 2 },
-  { label: 'Subito', count: 2 },
 ]
 </script>
 

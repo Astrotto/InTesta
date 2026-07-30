@@ -84,7 +84,7 @@ const highlights: Highlight[] = [
       <SectionHeading
         eyebrow="I nostri spazi"
         title="Il Salone e le postazioni"
-        subtitle="Un ambiente curato nei dettagli, pensato per farti sentire coccolata dal primo momento."
+        subtitle="Un ambiente curato nei dettagli, pensato per farti sentire a tuo agio dal primo momento."
       />
 
       <div class="mt-14">

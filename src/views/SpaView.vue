@@ -36,11 +36,6 @@ const rituals: Ritual[] = [
     title: 'Trattamenti idratanti',
     text: 'Prodotti professionali selezionati per nutrire in profondità capello e cute.',
   },
-  {
-    icon: 'hot-tub-person',
-    title: 'Poltrone relax',
-    text: 'Postazioni con funzione massaggiante per un momento di puro benessere.',
-  },
 ]
 </script>
 
@@ -49,7 +44,7 @@ const rituals: Ritual[] = [
     <PageHero
       eyebrow="Spa & Wellness"
       title="Un momento di benessere, tutto per te"
-      subtitle="Non solo capelli: da In Testa la cura si prende il suo tempo, tra rituali rilassanti e coccole per il corpo e la mente."
+      subtitle="Non solo capelli: da In Testa la cura si prende il suo tempo, tra rituali rilassanti e attenzione per il corpo e la mente."
     />
 
     <!-- VIDEO SHOWCASE -->
@@ -99,7 +94,7 @@ const rituals: Ritual[] = [
         title="Benessere dalla testa ai capelli"
         subtitle="Ogni trattamento diventa un'occasione per rilassarti, in un ambiente pensato per il tuo relax."
       />
-      <div class="mt-14 grid gap-6 sm:grid-cols-3">
+      <div class="mt-14 grid gap-6 sm:grid-cols-2">
         <div
           v-for="(ritual, i) in rituals"
           :key="ritual.title"
@@ -150,7 +145,7 @@ const rituals: Ritual[] = [
             <BaseButton :href="salon.whatsapp" variant="accent" :icon="['fab', 'whatsapp']">
               Prenota ora
             </BaseButton>
-            <BaseButton to="/servizi" variant="outline" icon="arrow-right" icon-right>
+            <BaseButton to="/servizi" variant="surface" icon="arrow-right" icon-right>
               Scopri tutti i servizi
             </BaseButton>
           </div>
