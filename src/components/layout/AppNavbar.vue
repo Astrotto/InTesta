@@ -39,15 +39,10 @@ watch(
         : 'border-b border-transparent bg-transparent'
     "
   >
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8">
+    <nav class="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 lg:px-8">
       <!-- Logo -->
-      <RouterLink to="/" class="group flex flex-col leading-none" aria-label="In Testa Hair Salon — Home">
-        <span class="font-display text-2xl font-semibold tracking-wide text-foreground">
-          in Testa
-        </span>
-        <span class="text-[0.6rem] font-medium uppercase tracking-[0.3em] text-accent">
-          Hair Salon
-        </span>
+      <RouterLink to="/" class="flex items-center" aria-label="In Testa Hair Salon — Home">
+        <img src="/logo.webp" alt="In Testa Hair Salon" class="h-14 w-auto" />
       </RouterLink>
 
       <!-- Link desktop -->
