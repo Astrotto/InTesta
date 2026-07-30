@@ -37,6 +37,22 @@ export interface WorkItem {
   alt: string
 }
 
+export interface ProductLine {
+  icon: string
+  title: string
+  description: string
+}
+
+export interface ProductMedia {
+  /** Foto del banco prodotti o video girato in salone */
+  type: 'image' | 'video'
+  src: string
+  /** Fotogramma di anteprima: obbligatorio per i video */
+  poster?: string
+  alt: string
+  caption: string
+}
+
 export interface SalonContact {
   name: string
   shortName: string
@@ -204,6 +220,62 @@ export const works: WorkItem[] = [
     caption: 'Méches sottili che accendono la base senza scurirla.',
     category: 'colore',
     alt: 'Capelli castani mossi con méches dorate',
+  },
+]
+
+/**
+ * Prodotti utilizzati e in vendita in salone.
+ * Le foto e i video arrivano dalla cartella /prodotti.
+ */
+export const productBrand = {
+  name: 'Philip Martin’s',
+  origin: 'Made of Italy',
+  intro:
+    'Sui capelli delle nostre clienti usiamo solo prodotti professionali italiani, scelti uno per uno: la nostra firma è Philip Martin’s.',
+  paragraphs: [
+    'Philip Martin’s è un marchio italiano di cosmetica professionale per capelli e persona, con formule attente alla naturalità degli ingredienti e un’idea di bellezza semplice e non aggressiva.',
+    'Li usiamo ogni giorno in salone — dal lavaggio al trattamento fino al finish — e li trovi in esposizione all’ingresso: se un prodotto ti è piaciuto durante il servizio, puoi portartelo a casa.',
+  ],
+  highlights: [
+    'Cosmetica professionale italiana',
+    'Formule attente agli ingredienti',
+    'In uso e in vendita in salone',
+  ],
+} as const
+
+export const productLines: ProductLine[] = [
+  {
+    icon: 'bottle-droplet',
+    title: 'Lavaggio & cura quotidiana',
+    description:
+      'Shampoo e balsamo scelti in base alla tua cute e al tuo capello, per mantenere il colore e la morbidezza tra un appuntamento e l’altro.',
+  },
+  {
+    icon: 'hand-sparkles',
+    title: 'Trattamenti & ricostruzione',
+    description:
+      'Maschere e trattamenti professionali che accompagnano la ricostruzione della fibra e l’idratazione profonda delle lunghezze.',
+  },
+  {
+    icon: 'wand-magic-sparkles',
+    title: 'Styling & finish',
+    description:
+      'Prodotti di finitura per fissare la piega, dare volume o definire le onde senza appesantire il capello.',
+  },
+  {
+    icon: 'spray-can-sparkles',
+    title: 'Profumi',
+    description:
+      'La collezione di profumi Philip Martin’s, esposta in salone: puoi provarli mentre aspetti e sceglierli con calma.',
+  },
+]
+
+export const productMedia: ProductMedia[] = [
+  {
+    type: 'image',
+    src: '/prodotti/philip.jpeg',
+    alt: 'Espositore Philip Martin’s in salone con i profumi In Oud, Marty, Opaco, Aplomb e In Amber',
+    caption: 'Il banco profumi Philip Martin’s all’ingresso del salone.',
   },
 ]
 

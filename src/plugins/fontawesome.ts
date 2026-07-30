@@ -25,6 +25,8 @@ import {
   faHandSparkles,
   faHotTubPerson,
   faPlay,
+  faBottleDroplet,
+  faSprayCanSparkles,
 } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
@@ -59,6 +61,8 @@ export function registerIcons(): void {
     faHandSparkles,
     faHotTubPerson,
     faPlay,
+    faBottleDroplet,
+    faSprayCanSparkles,
     faInstagram,
     faWhatsapp,
   )

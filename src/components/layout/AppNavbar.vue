@@ -115,7 +115,7 @@ watch(
   transition:
     max-height 0.4s ease,
     opacity 0.3s ease;
-  max-height: 30rem;
+  max-height: 40rem;
 }
 .mobile-menu-enter-from,
 .mobile-menu-leave-to {

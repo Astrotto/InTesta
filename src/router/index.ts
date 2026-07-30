@@ -27,6 +27,12 @@ const routes: RouteRecordRaw[] = [
     meta: { title: 'Spa & Wellness · In Testa Hair Salon' },
   },
   {
+    path: '/prodotti',
+    name: 'prodotti',
+    component: () => import('@/views/ProductsView.vue'),
+    meta: { title: 'Prodotti · In Testa Hair Salon' },
+  },
+  {
     path: '/recensioni',
     name: 'recensioni',
     component: () => import('@/views/ReviewsView.vue'),
