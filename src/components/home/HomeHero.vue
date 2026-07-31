@@ -56,7 +56,7 @@ onMounted(() => {
             class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/85 backdrop-blur"
           >
             <FontAwesomeIcon icon="location-dot" class="text-accent-soft" />
-            Pratola Peligna · Provincia dell'Aquila
+            Pratola Peligna · Acquila (AQ)
           </div>
 
           <h1
